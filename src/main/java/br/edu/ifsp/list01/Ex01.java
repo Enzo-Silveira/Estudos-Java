@@ -22,6 +22,7 @@ class Ex01 {
         final int input = scanner.nextInt();
         final Ex01 ex01 = new Ex01();
         System.out.println(ex01.compute(input));
+        scanner.close();
     }
 
     String compute(int qtdLivros) {

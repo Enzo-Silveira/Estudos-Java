@@ -1,5 +1,8 @@
 package br.edu.ifsp.list01;
 
+import java.util.Locale;
+import java.util.Scanner;
+
 /*
     A avenida principal da cidade de Algoritmopolis possui limite de velocidade de L km/h.
     Se o motorista ultrapassar essa velocidade, é aplicado uma multa de R$ M, mais R$ A
@@ -23,14 +26,24 @@ package br.edu.ifsp.list01;
 public class Ex05 {
 
     public static void main(String[] args) {
-        //Leia o input
-        //Crie uma variável do tipo deste arquivo. Exemplo: Ex02 ex = new Ex02();
-        //Escreva o resultado da chamada do método compute() aqui
+        Locale.setDefault(Locale.US);
+        final Scanner scanner = new Scanner(System.in);
+        final int L = scanner.nextInt();
+        final int m = scanner.nextInt();
+        final int a = scanner.nextInt();
+        final int v = scanner.nextInt();
+        final Ex05 ex05 = new Ex05();
+        System.out.println(ex05.compute(L, m, a, v));
+        scanner.close();
     }
 
     String compute(int L, double m, double a, int v) {
-        String output =  null;
-        //put your logic here
-        return output;
+        Locale.setDefault(Locale.US);
+        if(v>L){
+            double value = m + (a*(v-L));
+            return String.format("%.2f",value);
+        }
+
+        return "0.00";
     }
 }

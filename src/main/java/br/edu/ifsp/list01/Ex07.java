@@ -1,5 +1,8 @@
 package br.edu.ifsp.list01;
 
+import java.util.Locale;
+import java.util.Scanner;
+
 /*
     Um motorista de Uber estipula o preço de uma determinada viagem dada a quantidade de quilômetros percorrida.
     Para viagens de até X km, é cobrado um valor R$ V1 por km. Acima de X km, é cobrado o valor R$ V2.
@@ -21,14 +24,24 @@ package br.edu.ifsp.list01;
 public class Ex07 {
 
     public static void main(String[] args) {
-        //Leia o input
-        //Crie uma variável do tipo deste arquivo. Exemplo: Ex02 ex = new Ex02();
-        //Escreva o resultado da chamada do método compute() aqui
+        Locale.setDefault(Locale.US);
+        final Scanner scanner = new Scanner(System.in);
+        final int x = scanner.nextInt();
+        final double v1 = scanner.nextDouble();
+        final double v2 = scanner.nextDouble();
+        final int a = scanner.nextInt();
+        final Ex07 ex07 = new Ex07();
+        final String value = String.format("%.2f",ex07.compute(x, v1, v2, a));
+        System.out.println(value);
+        scanner.close();
     }
 
     double compute(int x, double v1, double v2, double a) {
-        double output = -0.1;
-        //put your logic here
-        return output;
+        Locale.setDefault(Locale.US);
+        if(a<=x){
+            return a*v1;
+        }else{
+            return a*v2;
+        }
     }
 }

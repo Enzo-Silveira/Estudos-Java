@@ -16,8 +16,48 @@ public class Ex03 {
     }
 
     String compute(int[] firstFive, int[] otherInts) {
-        String output = null;
-        //put your logic here
-        return output;
+        String output = "";
+        int[] fullArray = new int[10];
+        int i, qt = 0;
+        boolean flag = false;
+        for(i = 0; i < firstFive.length; i++){
+            fullArray[i] = firstFive[i];
+            qt++;
+        }
+
+        for(int value : otherInts){
+            for(i = 0;i<qt;i++){
+                if(fullArray[i]==value){
+                    flag = true;
+                    while (i<qt){
+                        fullArray[i] = fullArray[i+1];
+                        i++;
+                    }
+                    qt--;
+                }
+            }
+            if(!flag){
+                fullArray[qt] = value;
+                qt++;
+                if(qt == 10){
+                    //for(i = 0;i<qt;i++){}
+                    //output = fullArray.toString();
+                    return output;
+                }else{
+                    //output = fullArray.toString();
+                    System.out.println(output);
+                }
+
+            }else{
+                if(qt == 0){
+                    return null;
+                }else{
+                    //output = fullArray.toString();
+                    System.out.println(output);
+                    flag = false;
+                }
+            }
+        }
+        return null;
     }
 }

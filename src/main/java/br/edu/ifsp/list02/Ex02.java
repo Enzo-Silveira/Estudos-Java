@@ -19,7 +19,7 @@ package br.edu.ifsp.list02;
               100 50 0 -50 -100
 */
 
-import java.util.Locale;
+
 import java.util.Scanner;
 import java.util.StringJoiner;
 
@@ -40,6 +40,7 @@ public class Ex02 {
 
         final Ex02 ex02 = new Ex02();//
         System.out.println(ex02.compute(arrayA, arrayB));
+        scanner.close();
     }
 
     String compute(int[] arrayA, int[] arrayB) {

@@ -1,5 +1,9 @@
 package br.edu.ifsp.list02;
 
+
+
+import java.util.Scanner;
+
 /*
     Você está de volta em seu hotel na Tailândia depois de um dia de mergulhos. O seu quarto tem duas lâmpadas, chamadas
     de A e B. No hotel há dois interruptores, que chamaremos de C1 e C2. Ao apertar C1, a lâmpada A acende se estiver
@@ -27,14 +31,25 @@ package br.edu.ifsp.list02;
  */
 public class Ex04 {
     public static void main(String[] args) {
-        //Leia o input
-        //Crie uma variável do tipo deste arquivo. Exemplo: Ex02 ex = new Ex02();
-        //Escreva o resultado da chamada do método compute() aqui
+        final Scanner scanner = new Scanner(System.in);
+        final int ia = scanner.nextInt();
+        final int ib = scanner.nextInt();
+        final int fa = scanner.nextInt();
+        final int fb = scanner.nextInt();
+        final Ex04 ex04 = new Ex04();
+        System.out.println(ex04.compute(ia, ib, fa, fb));
+        scanner.close();
     }
 
     int compute(int ia, int ib, int fa, int fb) {
-        int output = -1;
-        //put your logic here
+        int output = 0;
+        if(ia != fa && ib != fb){
+            output++;
+        } else if (ia != fa) {
+            output++;
+        }else if (ib != fb){
+            output = 2;
+        }
         return output;
     }
 }

@@ -1,5 +1,7 @@
 package br.edu.ifsp.list02;
 
+import java.util.Scanner;
+
 /*
     Você está responsável pelo bolo de aniversário da sua priminha e decidiu que o bolo terá uma vela para cada ano da
     idade total dela. Quando ela assopra as velas, ela só é capaz de apagar apenas as velas mais altas. Sua tarefa é fazer
@@ -21,14 +23,30 @@ package br.edu.ifsp.list02;
  */
 public class Ex05 {
     public static void main(String[] args) {
-        //Leia o input
-        //Crie uma variável do tipo deste arquivo. Exemplo: Ex02 ex = new Ex02();
-        //Escreva o resultado da chamada do método compute() aqui
+        final Scanner scanner = new Scanner(System.in);
+        final int age = scanner.nextInt();
+        final int[] velas = new int[age];
+        for (int i = 0; i < velas.length; i++) {
+            velas[i] = scanner.nextInt();
+        }
+        final Ex05 ex05 = new Ex05();
+        System.out.println(ex05.compute(velas));
+        scanner.close();
     }
 
     int compute(int[] velas) {
-        int output = -1;
-        //put your logic here
-        return output;
+        int biggest = 0;
+        int number = 0;
+        for(int value : velas){
+            if(value>biggest){
+                biggest = value;
+            }
+        }
+        for(int value : velas){
+            if(value == biggest){
+                number++;
+            }
+        }
+        return number;
     }
 }

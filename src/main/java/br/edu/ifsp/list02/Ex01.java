@@ -31,7 +31,12 @@ public class Ex01 {
         }
 
         final Ex01 ex01 = new Ex01();
-        System.out.println(ex01.compute(temperatures));
+        if(ex01.compute(temperatures)>=0){
+            System.out.println(ex01.compute(temperatures));
+        }else{
+            System.out.println("Erro");
+        }
+        scanner.close();
     }
 
     int compute(int[] temperatures) {

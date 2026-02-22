@@ -1,5 +1,7 @@
 package br.edu.ifsp.list02;
 
+import java.util.Scanner;
+
 /*
     Clara está organizando as fotos da sua última viagem num álbum de fotos. Como ela tem muitas fotos, para economizar
     páginas do álbum ela quer colar duas fotos por página do álbum.
@@ -41,14 +43,40 @@ package br.edu.ifsp.list02;
  */
 public class Ex07 {
     public static void main(String[] args) {
-        //Leia o input
-        //Crie uma variável do tipo deste arquivo. Exemplo: Ex02 ex = new Ex02();
-        //Escreva o resultado da chamada do método compute() aqui
+        final Scanner scanner = new Scanner(System.in);
+        final int x = scanner.nextInt();
+        final int y = scanner.nextInt();
+        final int l1 = scanner.nextInt();
+        final int h1 = scanner.nextInt();
+        final int l2 = scanner.nextInt();
+        final int h2 = scanner.nextInt();
+        final Ex07 ex07 = new Ex07();
+        System.out.println(ex07.compute(x, y, l1, h1, l2, h2));
+        scanner.close();
     }
 
     String compute(int x, int y, int l1, int h1, int l2, int h2) {
-        String output = null;
-        //put your logic here
-        return output;
+        int[][] foto1 = {{l1, h1}, {h1, l1}};
+        int[][] foto2 = {{l2, h2}, {h2, l2}};
+
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 2; j++) {
+                int w1 = foto1[i][0];
+                int a1 = foto1[i][1];
+                int w2 = foto2[j][0];
+                int a2 = foto2[j][1];
+
+                // Lado a lado (horizontal)
+                if (w1 + w2 <= x && Math.max(a1, a2) <= y) {
+                    return "S";
+                }
+
+                // Um sobre o outro (vertical)
+                if (a1 + a2 <= y && Math.max(w1, w2) <= x) {
+                    return "S";
+                }
+            }
+        }
+        return "N";
     }
 }

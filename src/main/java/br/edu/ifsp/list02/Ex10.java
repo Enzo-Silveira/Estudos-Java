@@ -1,5 +1,7 @@
 package br.edu.ifsp.list02;
 
+import java.util.Scanner;
+
 /*
     Um robô possui um sensor de infravermelho para navegação e mapeamento que emite 181 feixes com um intervalo de um
     grau entre cada um deles (-90° na extrema-esquerda (feixe 0), 0° no centro (feixe 90) e 90° na extrema direita
@@ -30,14 +32,31 @@ package br.edu.ifsp.list02;
  */
 public class Ex10 {
     public static void main(String[] args) {
-        //Leia o input
-        //Crie uma variável do tipo deste arquivo. Exemplo: Ex02 ex = new Ex02();
-        //Escreva o resultado da chamada do método compute() aqui
+        final Scanner scanner = new Scanner(System.in);
+        final int x = scanner.nextInt();
+        final int y = scanner.nextInt();
+        final int a = scanner.nextInt();
+        final int f = scanner.nextInt();
+        final int d = scanner.nextInt();
+        final Ex10 ex10 = new Ex10();
+        System.out.println(ex10.compute(x, y, a, f, d));
+        scanner.close();
     }
 
     String compute(int x, int y, int a, int f, int d) {
-        String output = null;
-        //put your logic here
-        return output;
+        int angle = a + f - 90;
+        double rad = Math.toRadians(angle);
+
+        if(d >= 0){
+            double x2 = x + d * Math.sin(rad);
+            double y2 = y + d * Math.cos(rad);
+
+            int xFinal = (int) Math.round(x2);
+            int yFinal = (int) Math.round(y2);
+
+            return "(" + xFinal + "," + yFinal + ")";
+        }else{
+            return "Erro";
+        }
     }
 }
